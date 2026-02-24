@@ -1,0 +1,1 @@
+You can use Python’s built-in smtplib, or a library like yagmail, or a transactional email service (SendGrid, Mailgun, etc.).
