@@ -1,8 +1,8 @@
-from embeddings import EmbeddingModel
+from app.embeddings import EmbeddingModel
 import numpy as np
-from database import Database
+from app.database import Database
 from dotenv import load_dotenv
-from llm_utils import get_explanation
+from app.llm_utils import get_explanation
 import os
 
 def cosine_similarity(vec1, vec2):  # Cosine similarity is a measure of similarity between two non-zero vectors in an inner product space. It is defined as the cosine of the angle between them, which ranges from -1 to 1. A value of 1 indicates that the vectors are identical, while a value of -1 indicates that they are completely opposite. A value of 0 indicates that the vectors are orthogonal (i.e., they have no similarity).
