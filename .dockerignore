@@ -1,0 +1,21 @@
+# .dockerignore
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.git
+.gitignore
+.vscode
+*.db
+*.sqlite3
+*.log
+
+# Ignore test and cache folders
+**/tests/
+**/.pytest_cache/
+
+# Ignore local dev files
+*.swp
+*.bak
+*.tmp
