@@ -18,7 +18,7 @@ COPY ./orchestration ./orchestration
 EXPOSE 8000
 
 # 6. Run FastAPI with uvicorn
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "app.api:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
 # for local run ----   docker run -p 8000:8000 --env-file .env rolematch-backend
