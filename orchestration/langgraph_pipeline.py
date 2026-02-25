@@ -24,3 +24,5 @@ if __name__ == "__main__":
     context = create_initial_context()
     result = workflow.invoke(context)
     print("Workflow result:", result)
+
+# to run this use python -m orchestration.langgraph_pipeline

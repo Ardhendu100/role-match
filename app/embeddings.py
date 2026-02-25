@@ -1,12 +1,21 @@
-from sentence_transformers import SentenceTransformer   #The model (SentenceTransformer) is the data.
+# from sentence_transformers import SentenceTransformer   #The model (SentenceTransformer) is the data.
 
+from langchain_huggingface import HuggingFaceEndpointEmbeddings
+import os
+import numpy as np
+from dotenv import load_dotenv
 
+load_dotenv()
 # Embeddings are used to convert text into vector representations that can be stored in a vector database and used for similarity search.
 class EmbeddingModel:
     def __init__(self):
         
-        # Load the pre-trained model
-        self.model = SentenceTransformer('all-MiniLM-L6-v2')
+        # Use HuggingFace Inference API instead of loading model locally
+        # This significantly reduces memory usage (no model loaded in RAM)
+        self.model = HuggingFaceEndpointEmbeddings(
+            model="sentence-transformers/all-MiniLM-L6-v2",
+            huggingfacehub_api_token=os.getenv("HF_API_KEY")
+        )
         # Loading "all-MiniLM-L6-v2" is expensive.
         # If you didn’t use a class, you might accidentally reload it many times. Downloads model (first time only). Loads it into memory. Ready to convert text → vector
 
@@ -17,9 +26,10 @@ class EmbeddingModel:
 
 
     def encode(self, text: str):
-        # Convert text into embedding vector
-        embedding = self.model.encode(text)
-        return embedding
+        # Convert text into embedding vector using HuggingFace API
+        # Returns a numpy array for compatibility with existing code
+        embedding = self.model.embed_query(text)
+        return np.array(embedding)
 
 
 
