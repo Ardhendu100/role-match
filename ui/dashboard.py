@@ -1,7 +1,8 @@
 import streamlit as st
 import requests
+import os
 
-API_URL = "http://localhost:8000"  # Adjust if your FastAPI runs elsewhere
+API_URL = os.getenv("API_URL", "http://localhost:8000")  # Use env variable for deployed backend
 
 st.title("Job Match Dashboard")
 
