@@ -4,7 +4,7 @@ import os
 
 API_URL = os.getenv("API_URL", "http://localhost:8000")  # Use env variable for deployed backend
 
-st.title("Job Match Dashboard")
+st.title("Role Match Dashboard")
 
 # Fetch all jobs (you may want to create a FastAPI endpoint for this)
 @st.cache_data
